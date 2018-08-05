@@ -19,7 +19,7 @@ namespace CapaDatos
         private string _Estado;
         private string _Filtro;
 
-        //Datos Basicos
+        //Datos Basicos PRUEBA DE CONEXION
         private string _CodigoID;
         private string _Empleado;
         private string _Profesion;
