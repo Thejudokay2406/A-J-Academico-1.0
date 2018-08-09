@@ -132,14 +132,14 @@ namespace CapaDatos
 
         }
 
-        public string Guardar_Referencia(Conexion_Gestion_Referencia Detalle_Referencia, ref SqlConnection SqlCon, ref SqlTransaction SqlTra)
+        public string Guardar_Referencia(Conexion_Gestion_Referencia Detalle_Referencia, ref SqlConnection SqlCon)
         {
             string rpta = "";
             try
             {
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.Transaction = SqlTra;
+                //SqlCmd.Transaction = SqlTra;
                 SqlCmd.CommandText = "Gestion.AJ_Referencia";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
@@ -159,7 +159,7 @@ namespace CapaDatos
                 SqlParameter ParCodigoID = new SqlParameter();
                 ParCodigoID.ParameterName = "@CodigoID";
                 ParCodigoID.SqlDbType = SqlDbType.VarChar;
-                ParCodigoID.Size = 20;
+                ParCodigoID.Size = 50;
                 ParCodigoID.Value = Detalle_Referencia.CodigoID;
                 SqlCmd.Parameters.Add(ParCodigoID);
 

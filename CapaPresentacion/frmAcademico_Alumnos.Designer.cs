@@ -32,16 +32,14 @@
             this.TBAuto_CodigoID = new System.Windows.Forms.TextBox();
             this.IDFamilia = new System.Windows.Forms.TextBox();
             this.IDOrden = new System.Windows.Forms.TextBox();
-            this.IDCodigo = new System.Windows.Forms.TextBox();
+            this.IDCarnet = new System.Windows.Forms.TextBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.TBCodigoID = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
             this.PanelFoto = new System.Windows.Forms.PictureBox();
             this.TBObservacion = new System.Windows.Forms.TextBox();
             this.label76 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
             this.CBEstado = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
             this.DTFechaDeIngreso = new System.Windows.Forms.DateTimePicker();
@@ -202,10 +200,8 @@
             this.label77 = new System.Windows.Forms.Label();
             this.CBInstitutoAnterior = new System.Windows.Forms.ComboBox();
             this.TBInstitutoAnterior = new System.Windows.Forms.TextBox();
-            this.TBUltimaJornada = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
-            this.TBUltimoCurso = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox20 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
@@ -229,6 +225,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CBUltimoCurso = new System.Windows.Forms.ComboBox();
+            this.CBUltimaJornada = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -253,7 +252,7 @@
             this.groupBox1.Controls.Add(this.TBAuto_CodigoID);
             this.groupBox1.Controls.Add(this.IDFamilia);
             this.groupBox1.Controls.Add(this.IDOrden);
-            this.groupBox1.Controls.Add(this.IDCodigo);
+            this.groupBox1.Controls.Add(this.IDCarnet);
             this.groupBox1.Controls.Add(this.tabControl2);
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Controls.Add(this.btnGuardar);
@@ -286,12 +285,12 @@
             this.IDOrden.Size = new System.Drawing.Size(100, 23);
             this.IDOrden.TabIndex = 192;
             // 
-            // IDCodigo
+            // IDCarnet
             // 
-            this.IDCodigo.Location = new System.Drawing.Point(139, 413);
-            this.IDCodigo.Name = "IDCodigo";
-            this.IDCodigo.Size = new System.Drawing.Size(100, 23);
-            this.IDCodigo.TabIndex = 191;
+            this.IDCarnet.Location = new System.Drawing.Point(139, 413);
+            this.IDCarnet.Name = "IDCarnet";
+            this.IDCarnet.Size = new System.Drawing.Size(100, 23);
+            this.IDCarnet.TabIndex = 191;
             // 
             // tabControl2
             // 
@@ -309,11 +308,9 @@
             // 
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.TBCodigoID);
-            this.tabPage3.Controls.Add(this.label73);
             this.tabPage3.Controls.Add(this.PanelFoto);
             this.tabPage3.Controls.Add(this.TBObservacion);
             this.tabPage3.Controls.Add(this.label76);
-            this.tabPage3.Controls.Add(this.label75);
             this.tabPage3.Controls.Add(this.CBEstado);
             this.tabPage3.Controls.Add(this.label74);
             this.tabPage3.Controls.Add(this.DTFechaDeIngreso);
@@ -350,18 +347,6 @@
             this.TBCodigoID.TabIndex = 19;
             this.TBCodigoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label73
-            // 
-            this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(112, 204);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(180, 15);
-            this.label73.TabIndex = 18;
-            this.label73.Text = " Alexander Javier Guerrero Cuello";
-            // 
             // PanelFoto
             // 
             this.PanelFoto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -382,10 +367,10 @@
             this.TBObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBObservacion.Location = new System.Drawing.Point(84, 222);
+            this.TBObservacion.Location = new System.Drawing.Point(84, 207);
             this.TBObservacion.Multiline = true;
             this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(284, 111);
+            this.TBObservacion.Size = new System.Drawing.Size(284, 126);
             this.TBObservacion.TabIndex = 16;
             // 
             // label76
@@ -394,23 +379,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(6, 270);
+            this.label76.Location = new System.Drawing.Point(6, 258);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(72, 15);
             this.label76.TabIndex = 15;
             this.label76.Text = "Observacion";
-            // 
-            // label75
-            // 
-            this.label75.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(6, 204);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(100, 15);
-            this.label75.TabIndex = 14;
-            this.label75.Text = "Director del Curso";
             // 
             // CBEstado
             // 
@@ -472,7 +445,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(6, 159);
+            this.label71.Location = new System.Drawing.Point(6, 154);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(98, 15);
             this.label71.TabIndex = 6;
@@ -575,6 +548,7 @@
             // 
             // TPDatosBasicos
             // 
+            this.TPDatosBasicos.Controls.Add(this.textBox1);
             this.TPDatosBasicos.Controls.Add(this.TBTipoIdentificacion_Alumno);
             this.TPDatosBasicos.Controls.Add(this.CBBecario);
             this.TPDatosBasicos.Controls.Add(this.label58);
@@ -640,7 +614,7 @@
             this.CBBecario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBBecario.FormattingEnabled = true;
             this.CBBecario.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Si",
             "No"});
             this.CBBecario.Location = new System.Drawing.Point(333, 180);
@@ -889,7 +863,7 @@
             this.CBGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBGenero.FormattingEnabled = true;
             this.CBGenero.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Masculino",
             "Femenino"});
             this.CBGenero.Location = new System.Drawing.Point(333, 122);
@@ -1160,7 +1134,7 @@
             this.CBRetiro_Padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBRetiro_Padre.FormattingEnabled = true;
             this.CBRetiro_Padre.Items.AddRange(new object[] {
-            "Seleccione una Opcion",
+            "Sin Especificar",
             "Autorizacion Consedida",
             "Autorizacion No Consedida"});
             this.CBRetiro_Padre.Location = new System.Drawing.Point(318, 296);
@@ -1177,7 +1151,7 @@
             this.CBInformacion_Padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBInformacion_Padre.FormattingEnabled = true;
             this.CBInformacion_Padre.Items.AddRange(new object[] {
-            "Seleccione una Opcion",
+            "Sin Especificar",
             "Autorizacion Consedida",
             "Autorizacion No Consedida"});
             this.CBInformacion_Padre.Location = new System.Drawing.Point(318, 324);
@@ -1392,9 +1366,8 @@
             this.CBEstadocivil_Padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEstadocivil_Padre.FormattingEnabled = true;
             this.CBEstadocivil_Padre.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Casado",
-            "Divorciado",
             "Soltero(a)",
             "Union Libre"});
             this.CBEstadocivil_Padre.Location = new System.Drawing.Point(403, 238);
@@ -1423,7 +1396,7 @@
             this.CBIdentificacion_Padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBIdentificacion_Padre.FormattingEnabled = true;
             this.CBIdentificacion_Padre.Items.AddRange(new object[] {
-            "-",
+            "Sin Especificar",
             "C.C.",
             "I.E"});
             this.CBIdentificacion_Padre.Location = new System.Drawing.Point(89, 35);
@@ -1441,7 +1414,7 @@
             this.CBHogar_Padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBHogar_Padre.FormattingEnabled = true;
             this.CBHogar_Padre.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Compartido",
             "No Compartido"});
             this.CBHogar_Padre.Location = new System.Drawing.Point(403, 35);
@@ -1579,7 +1552,7 @@
             this.CBRetiro_Madre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBRetiro_Madre.FormattingEnabled = true;
             this.CBRetiro_Madre.Items.AddRange(new object[] {
-            "Seleccione una Opcion",
+            "Sin Especificar",
             "Autorizacion Consedida",
             "Autorizacion No Consedida"});
             this.CBRetiro_Madre.Location = new System.Drawing.Point(318, 296);
@@ -1596,7 +1569,7 @@
             this.CBInformacion_Madre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBInformacion_Madre.FormattingEnabled = true;
             this.CBInformacion_Madre.Items.AddRange(new object[] {
-            "Seleccione una Opcion",
+            "Sin Especificar",
             "Autorizacion Consedida",
             "Autorizacion No Consedida"});
             this.CBInformacion_Madre.Location = new System.Drawing.Point(318, 324);
@@ -1811,9 +1784,8 @@
             this.CBEstadoCivil_Madre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEstadoCivil_Madre.FormattingEnabled = true;
             this.CBEstadoCivil_Madre.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Casado",
-            "Divorciado",
             "Soltero(a)",
             "Union Libre"});
             this.CBEstadoCivil_Madre.Location = new System.Drawing.Point(403, 238);
@@ -1842,7 +1814,7 @@
             this.CBIdentificacion_Madre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBIdentificacion_Madre.FormattingEnabled = true;
             this.CBIdentificacion_Madre.Items.AddRange(new object[] {
-            "-",
+            "Sin Especificar",
             "C.C.",
             "I.E."});
             this.CBIdentificacion_Madre.Location = new System.Drawing.Point(89, 35);
@@ -1860,7 +1832,7 @@
             this.CBHogar_Madre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBHogar_Madre.FormattingEnabled = true;
             this.CBHogar_Madre.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Compartido",
             "No Compartido"});
             this.CBHogar_Madre.Location = new System.Drawing.Point(403, 35);
@@ -2081,13 +2053,14 @@
             this.CBIdentificacion_Acudiente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBIdentificacion_Acudiente.FormattingEnabled = true;
             this.CBIdentificacion_Acudiente.Items.AddRange(new object[] {
-            "-",
-            "I.E",
-            "C.C"});
+            "Sin Especificar",
+            "C.C.",
+            "I.E"});
             this.CBIdentificacion_Acudiente.Location = new System.Drawing.Point(89, 35);
             this.CBIdentificacion_Acudiente.Name = "CBIdentificacion_Acudiente";
             this.CBIdentificacion_Acudiente.Size = new System.Drawing.Size(56, 23);
             this.CBIdentificacion_Acudiente.TabIndex = 9;
+            this.CBIdentificacion_Acudiente.SelectedIndexChanged += new System.EventHandler(this.CBIdentificacion_Acudiente_SelectedIndexChanged);
             // 
             // TBIdentificacion_Acudiente
             // 
@@ -2386,7 +2359,15 @@
             this.CBSangre_DatosMedicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBSangre_DatosMedicos.FormattingEnabled = true;
             this.CBSangre_DatosMedicos.Items.AddRange(new object[] {
-            "Seleccione"});
+            "Sin Especificar",
+            "A+",
+            "A-",
+            "AB+",
+            "AB-",
+            "B+",
+            "B-",
+            "O+",
+            "O-"});
             this.CBSangre_DatosMedicos.Location = new System.Drawing.Point(110, 6);
             this.CBSangre_DatosMedicos.Name = "CBSangre_DatosMedicos";
             this.CBSangre_DatosMedicos.Size = new System.Drawing.Size(103, 23);
@@ -2430,13 +2411,13 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.CBUltimaJornada);
+            this.groupBox4.Controls.Add(this.CBUltimoCurso);
             this.groupBox4.Controls.Add(this.label77);
             this.groupBox4.Controls.Add(this.CBInstitutoAnterior);
             this.groupBox4.Controls.Add(this.TBInstitutoAnterior);
-            this.groupBox4.Controls.Add(this.TBUltimaJornada);
             this.groupBox4.Controls.Add(this.label78);
             this.groupBox4.Controls.Add(this.label79);
-            this.groupBox4.Controls.Add(this.TBUltimoCurso);
             this.groupBox4.Location = new System.Drawing.Point(9, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(526, 76);
@@ -2459,27 +2440,20 @@
             this.CBInstitutoAnterior.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBInstitutoAnterior.FormattingEnabled = true;
             this.CBInstitutoAnterior.Items.AddRange(new object[] {
-            "Seleccione",
+            "Sin Especificar",
             "Si",
             "No"});
             this.CBInstitutoAnterior.Location = new System.Drawing.Point(107, 19);
             this.CBInstitutoAnterior.Name = "CBInstitutoAnterior";
-            this.CBInstitutoAnterior.Size = new System.Drawing.Size(70, 23);
+            this.CBInstitutoAnterior.Size = new System.Drawing.Size(83, 23);
             this.CBInstitutoAnterior.TabIndex = 6;
             // 
             // TBInstitutoAnterior
             // 
-            this.TBInstitutoAnterior.Location = new System.Drawing.Point(183, 19);
+            this.TBInstitutoAnterior.Location = new System.Drawing.Point(196, 19);
             this.TBInstitutoAnterior.Name = "TBInstitutoAnterior";
-            this.TBInstitutoAnterior.Size = new System.Drawing.Size(337, 23);
+            this.TBInstitutoAnterior.Size = new System.Drawing.Size(324, 23);
             this.TBInstitutoAnterior.TabIndex = 1;
-            // 
-            // TBUltimaJornada
-            // 
-            this.TBUltimaJornada.Location = new System.Drawing.Point(355, 47);
-            this.TBUltimaJornada.Name = "TBUltimaJornada";
-            this.TBUltimaJornada.Size = new System.Drawing.Size(165, 23);
-            this.TBUltimaJornada.TabIndex = 5;
             // 
             // label78
             // 
@@ -2493,18 +2467,11 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(284, 50);
+            this.label79.Location = new System.Drawing.Point(294, 50);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(49, 15);
             this.label79.TabIndex = 4;
             this.label79.Text = "Jornada";
-            // 
-            // TBUltimoCurso
-            // 
-            this.TBUltimoCurso.Location = new System.Drawing.Point(107, 47);
-            this.TBUltimoCurso.Name = "TBUltimoCurso";
-            this.TBUltimoCurso.Size = new System.Drawing.Size(171, 23);
-            this.TBUltimoCurso.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -2775,6 +2742,29 @@
             this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevo_MouseLeave);
             this.btnNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnNuevo_MouseMove);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(66, 325);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 23);
+            this.textBox1.TabIndex = 194;
+            // 
+            // CBUltimoCurso
+            // 
+            this.CBUltimoCurso.FormattingEnabled = true;
+            this.CBUltimoCurso.Location = new System.Drawing.Point(107, 47);
+            this.CBUltimoCurso.Name = "CBUltimoCurso";
+            this.CBUltimoCurso.Size = new System.Drawing.Size(171, 23);
+            this.CBUltimoCurso.TabIndex = 7;
+            // 
+            // CBUltimaJornada
+            // 
+            this.CBUltimaJornada.FormattingEnabled = true;
+            this.CBUltimaJornada.Location = new System.Drawing.Point(349, 47);
+            this.CBUltimaJornada.Name = "CBUltimaJornada";
+            this.CBUltimaJornada.Size = new System.Drawing.Size(171, 23);
+            this.CBUltimaJornada.TabIndex = 8;
+            // 
             // frmAcademico_Alumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2822,14 +2812,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox IDFamilia;
         private System.Windows.Forms.TextBox IDOrden;
-        private System.Windows.Forms.TextBox IDCodigo;
+        private System.Windows.Forms.TextBox IDCarnet;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label73;
         private System.Windows.Forms.PictureBox PanelFoto;
         private System.Windows.Forms.TextBox TBObservacion;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Label label75;
         private System.Windows.Forms.ComboBox CBEstado;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.DateTimePicker DTFechaDeIngreso;
@@ -3006,9 +2994,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox CBInstitutoAnterior;
-        private System.Windows.Forms.TextBox TBUltimaJornada;
         private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.TextBox TBUltimoCurso;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.TextBox TBInstitutoAnterior;
         private System.Windows.Forms.Label label77;
@@ -3020,5 +3006,8 @@
         private System.Windows.Forms.TextBox TBCodigoID;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox TBAuto_CodigoID;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox CBUltimaJornada;
+        private System.Windows.Forms.ComboBox CBUltimoCurso;
     }
 }

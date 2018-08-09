@@ -13,13 +13,12 @@ namespace CapaNegocio
     {
         //Método Insertar que llama al método Insertar de la clase DIngreso
         //de la CapaDatos
-        public static string Guardar_DatosBasicos(int idempleado,string codigoid,string auto, string profesion, string pension, string compensacion, string contrato, string sueldo, string adelanto,
+        public static string Guardar_DatosBasicos(/*int idempleado,*/ string codigoid, string profesion, string pension, string compensacion, string contrato, string sueldo, string adelanto,
             string extras, string banco, string cuenta, string numero,
             string pago, string moneda, string recomendado, DateTime nacimiento, string hijos, string plantel, string civil)
         {
             Conexion_Gestion_DatosPersonales Obj = new Conexion_Gestion_DatosPersonales();
-            Obj.Auto = auto;
-            Obj.Idempleados = idempleado;
+            //Obj.Idempleados = idempleado;
             Obj.CodigoID = codigoid;
 
             Obj.Profesion = profesion;

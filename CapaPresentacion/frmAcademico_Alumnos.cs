@@ -284,10 +284,10 @@ namespace CapaPresentacion
                 this.CBInstitutoAnterior.BackColor = Color.FromArgb(187, 222, 251);
                 this.TBInstitutoAnterior.ReadOnly = true;
                 this.TBInstitutoAnterior.BackColor = Color.FromArgb(187, 222, 251);
-                this.TBUltimoCurso.ReadOnly = true;
-                this.TBUltimoCurso.BackColor = Color.FromArgb(187, 222, 251);
-                this.TBUltimaJornada.ReadOnly = true;
-                this.TBUltimaJornada.BackColor = Color.FromArgb(187, 222, 251);
+                this.CBUltimoCurso.Enabled = false;
+                this.CBUltimoCurso.BackColor = Color.FromArgb(187, 222, 251);
+                this.CBUltimaJornada.Enabled = false;
+                this.CBUltimaJornada.BackColor = Color.FromArgb(187, 222, 251);
             }
 
             else if (Habilitado == true)
@@ -455,10 +455,10 @@ namespace CapaPresentacion
                 this.CBInstitutoAnterior.BackColor = Color.FromArgb(32, 178, 170);
                 this.TBInstitutoAnterior.ReadOnly = false;
                 this.TBInstitutoAnterior.BackColor = Color.FromArgb(32, 178, 170);
-                this.TBUltimoCurso.ReadOnly = false;
-                this.TBUltimoCurso.BackColor = Color.FromArgb(32, 178, 170);
-                this.TBUltimaJornada.ReadOnly = false;
-                this.TBUltimaJornada.BackColor = Color.FromArgb(32, 178, 170);
+                this.CBUltimoCurso.Enabled = true;
+                this.CBUltimoCurso.BackColor = Color.FromArgb(32, 178, 170);
+                this.CBUltimaJornada.Enabled = true;
+                this.CBUltimaJornada.BackColor = Color.FromArgb(32, 178, 170);
             }
         }
 
@@ -550,7 +550,7 @@ namespace CapaPresentacion
         {
             try
             {
-                DataTable Datos = CapaNegocio.fAcademico_Alumno.AutoCompletar_CodigoID();
+                DataTable Datos = CapaNegocio.fConfiguracion_CodigoID.AutoCompletar_CodigoID();
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
@@ -562,50 +562,15 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    //frmAcademico_RegistrarAlumno frm = new frmAcademico_RegistrarAlumno();
                     Auto_CodigoID = Datos.Rows[0][0].ToString();
-                    //IdentificacionAlumno = Datos.Rows[0][1].ToString();
-                    //NºIdentificacion = Datos.Rows[0][2].ToString();
-                    //TipodeSangre = Datos.Rows[0][3].ToString();
-                    //OtroInstituto = Datos.Rows[0][4].ToString();
-                    //Plantel = Datos.Rows[0][5].ToString();
-                    //UltimoCurso = Datos.Rows[0][6].ToString();
-                    //Documentos = Datos.Rows[0][7].ToString();
-                    //Estado = Datos.Rows[0][8].ToString();
-                    //Observacion = Datos.Rows[0][9].ToString();
-                    //PlanPadrino = Datos.Rows[0][10].ToString();
-                    //Matricula = Datos.Rows[0][11].ToString();
-                    //Acudiente = Datos.Rows[0][12].ToString();
-                    //IdentificacionAcudiente = Datos.Rows[0][13].ToString();
-                    //NºIdentificacionAcudiente = Datos.Rows[0][14].ToString();
-                    //Telefono = Datos.Rows[0][15].ToString();
-                    //Correo = Datos.Rows[0][16].ToString();
-                    //Direccion = Datos.Rows[0][17].ToString();
+
+                    this.TBCodigoID.Text = Auto_CodigoID;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-        }
-
-        public void AutoCompletar_CodigoID()
-        {
-            this.TBCodigoID.Text = Auto_CodigoID;
-            //this.TBRIdentificacionalumno.Text = NºIdentificacion;
-            //this.TBRCodigo.Text = Codigo;
-            //this.TBRTipodesangre.Text = TipodeSangre;
-            //this.TBROtroInstituto.Text = OtroInstituto;
-            //this.TBRUltimocurso.Text = UltimoCurso;
-            //this.TBRPlantel.Text = Plantel;
-            //this.TBRDocumentos.Text = Documentos;
-            //this.TBRObservacion.Text = Observacion;
-            //this.TBRAcudiente.Text = Acudiente;
-            //this.CBRIdentificacionAcudiente.Text = IdentificacionAcudiente;
-            //this.TBRIdentificacionAcudiente.Text = NºIdentificacionAcudiente;
-            //this.TBRTelefono.Text = Telefono;
-            //this.TBRCorreo.Text = Correo;
-            //this.TBRDireccion.Text = Direccion;
         }
 
         public void setAlumno(string carnet, string orden, string alumno, string tipo, string identificacion)
@@ -631,7 +596,7 @@ namespace CapaPresentacion
             this.TBFamilia.Text = familia;
         }
 
-        private void Combobox_InformacionAcademicoa()
+        private void Combobox_InformacionAcademica()
         {
             try
             {
@@ -653,6 +618,23 @@ namespace CapaPresentacion
             }
         }
 
+        private void Combobox_OtrosDatos()
+        {
+            try
+            {
+                CBUltimoCurso.DataSource = fSistema_Academico_Cursos.Mostrar();
+                CBUltimoCurso.ValueMember = "Idcurso";
+                CBUltimoCurso.DisplayMember = "Curso";
+
+                CBUltimaJornada.DataSource = fSistema_Academico_Jornadas.Mostrar();
+                CBUltimaJornada.ValueMember = "Idjornada";
+                CBUltimaJornada.DisplayMember = "Jornada";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
@@ -672,11 +654,10 @@ namespace CapaPresentacion
             this.Botones();
             this.Habilitar();
 
-            this.Combobox_InformacionAcademicoa();
+            this.Combobox_InformacionAcademica();
             this.TBDireccion.Focus();
 
             this.Consulta_Auto_Codigo();
-            this.AutoCompletar_CodigoID();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -712,190 +693,67 @@ namespace CapaPresentacion
                     MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
                     TBIdentificacion_Alumno.BackColor = Color.FromArgb(250, 235, 215);
                 }
-                else if (this.TBFamilia.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBFamilia.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBGenero.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    CBGenero.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBCiudad.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBCiudad.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBMunicipio.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBMunicipio.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBNacionalidad.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBNacionalidad.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBBecario.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    CBBecario.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBDireccion.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBDireccion.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBBarrio.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBBarrio.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBEstracto.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBEstracto.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBComuna.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBComuna.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBTelefono.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBTelefono.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBMovil.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
-                    TBMovil.BackColor = Color.FromArgb(250, 235, 215);
-                }
-
-                //Datos del Padre
-                else if (this.TBPadre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    TBPadre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBIdentificacion_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    CBIdentificacion_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBIdentificacion_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    TBIdentificacion_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBHogar_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    CBHogar_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBDireccion_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    TBDireccion_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBBarrio_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    TBBarrio_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBFijo_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    TBFijo_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBMovil_Padre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos del Padre', Estos Seran Remarcados");
-                    TBMovil_Padre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-
-                //Datos de la Madre
-                else if (this.TBMadre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    TBMadre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBIdentificacion_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    CBIdentificacion_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBIdentificacion_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    TBIdentificacion_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBHogar_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    CBHogar_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBDireccion_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    TBDireccion_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBBarrio_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    TBBarrio_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBTelefono_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    TBTelefono_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBMovil_Madre.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos de la Madre', Estos Seran Remarcados");
-                    TBMovil_Madre.BackColor = Color.FromArgb(250, 235, 215);
-                }
-
-                //Otros Datos
-                else if (this.CBInstitutoAnterior.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Otros Datos', Estos Seran Remarcados");
-                    CBInstitutoAnterior.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBUltimoCurso.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Otros Datos', Estos Seran Remarcados");
-                    TBUltimoCurso.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.TBUltimaJornada.Text == string.Empty)
-                {
-                    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Otros Datos', Estos Seran Remarcados");
-                    TBUltimaJornada.BackColor = Color.FromArgb(250, 235, 215);
-                }
-
-                //Informacion Academica
-                else if (this.CBCurso.Text == string.Empty)
-                {
-                    MensajeError("Seleccione el Curso a Ejercer en la Pestaña 'Informacion Academica'.");
-                    CBCurso.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBJornada.Text == string.Empty)
-                {
-                    MensajeError("Seleccione la Jornada a Ejercer en la Pestaña 'Informacion Academica'.");
-                    CBJornada.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBPeriodo.Text == string.Empty)
-                {
-                    MensajeError("Seleccione el Periodo a Ejercer en la Pestaña 'Informacion Academica'.");
-                    CBPeriodo.BackColor = Color.FromArgb(250, 235, 215);
-                }
-                else if (this.CBEstado.Text == string.Empty)
-                {
-                    MensajeError("Seleccione un Estado Academico en la Pestaña 'Informacion Academica'.");
-                    CBEstado.BackColor = Color.FromArgb(250, 235, 215);
-                }
-
+                //else if (this.TBFamilia.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBFamilia.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.CBGenero.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    CBGenero.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBCiudad.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBCiudad.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBMunicipio.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBMunicipio.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBNacionalidad.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBNacionalidad.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.CBBecario.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    CBBecario.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBDireccion.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBDireccion.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBBarrio.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBBarrio.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBEstracto.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBEstracto.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBComuna.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBComuna.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBTelefono.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBTelefono.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                //else if (this.TBMovil.Text == string.Empty)
+                //{
+                //    MensajeError("Faltan Ingresar Algunos Datos en la Pestaña 'Datos Basicos', Estos Seran Remarcados");
+                //    TBMovil.BackColor = Color.FromArgb(250, 235, 215);
+                //}
+                
                 else
                 {
                     System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -919,7 +777,7 @@ namespace CapaPresentacion
 
                         rptaDatosMedicos = fAcademico_Alumno.Guardar_DatosMedicos("1", Convert.ToInt32(this.TBCodigoID.Text), this.CBSangre_DatosMedicos.Text, this.CBEps_Medicos.Text, this.TBAlimentos_DatosMedicos.Text, this.TBAnimales_DatosMedicos.Text, this.TBInsectos_DatosMedicos.Text, this.TBMedicamentos_DatosMedicos.Text, this.TBPlantas_DatosMedicos.Text, TBOtro_DatosMedicos.Text, this.TBInformacion_DatosMedicos.Text);
 
-                        rptaOtrosDatos = fAcademico_Alumno.Guardar_OtrosDatos("1", this.CBInstitutoAnterior.Text, this.TBInstitutoAnterior.Text, this.TBUltimoCurso.Text, this.TBUltimaJornada.Text, this.checkBox1.Text, this.checkBox2.Text, this.checkBox3.Text, this.checkBox4.Text, this.checkBox5.Text, this.checkBox6.Text, this.checkBox7.Text, this.checkBox8.Text, this.checkBox9.Text, this.checkBox10.Text,
+                        rptaOtrosDatos = fAcademico_Alumno.Guardar_OtrosDatos("1", this.CBInstitutoAnterior.Text, this.TBInstitutoAnterior.Text, this.CBUltimoCurso.Text, this.CBUltimaJornada.Text, this.checkBox1.Text, this.checkBox2.Text, this.checkBox3.Text, this.checkBox4.Text, this.checkBox5.Text, this.checkBox6.Text, this.checkBox7.Text, this.checkBox8.Text, this.checkBox9.Text, this.checkBox10.Text,
                         this.checkBox11.Text, this.checkBox12.Text, checkBox13.Text, this.checkBox14.Text, this.checkBox15.Text, this.checkBox16.Text, this.checkBox17.Text, this.checkBox18.Text, this.checkBox19.Text, this.checkBox20.Text);
 
                         rptaInformacionAcademicas = fAcademico_Alumno.Guardar_InformacionAcademica("1", this.CBCurso.Text, this.CBJornada.Text, this.CBPeriodo.Text, this.CBEstado.Text, this.DTFechaDeIngreso.Value, this.DTFechaDeRegistro.Value, imagen, Convert.ToInt32(this.TBCodigoID.Text), this.TBObservacion.Text);
@@ -1043,6 +901,11 @@ namespace CapaPresentacion
             {
 
             }
+        }
+
+        private void CBIdentificacion_Acudiente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="Conexion_Biblioteca_DetalleDePrestamos.cs" />
     <Compile Include="Conexion_Biblioteca_Libros.cs" />
     <Compile Include="Conexion_Biblioteca_Prestamos.cs" />
+    <Compile Include="Conexion_Configuracion_CodigoID.cs" />
     <Compile Include="Conexion_Financiera_Consignaciones.cs" />
     <Compile Include="Conexion_Financiera_CuentasBancarias.cs" />
     <Compile Include="Conexion_Financiera_Transferencias.cs" />

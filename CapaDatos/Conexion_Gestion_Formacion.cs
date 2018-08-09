@@ -134,14 +134,14 @@ namespace CapaDatos
             this.CodigoID = codigoid;
         }
 
-        public string Guardar_Formacion(Conexion_Gestion_Formacion Detalle_Formacion, ref SqlConnection SqlCon,ref SqlTransaction SqlTra)
+        public string Guardar_Formacion(Conexion_Gestion_Formacion Detalle_Formacion, ref SqlConnection SqlCon)
         {
             string rpta = "";
             try
             {
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.Transaction = SqlTra;
+                //SqlCmd.Transaction = SqlTra;
                 SqlCmd.CommandText = "Gestion.AJ_Formacion";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
@@ -161,7 +161,7 @@ namespace CapaDatos
                 SqlParameter ParCodigoID = new SqlParameter();
                 ParCodigoID.ParameterName = "@CodigoID";
                 ParCodigoID.SqlDbType = SqlDbType.VarChar;
-                ParCodigoID.Size = 20;
+                ParCodigoID.Size = 50;
                 ParCodigoID.Value = Detalle_Formacion.CodigoID;
                 SqlCmd.Parameters.Add(ParCodigoID);
 

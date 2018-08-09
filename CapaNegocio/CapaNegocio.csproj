@@ -47,6 +47,7 @@
     <Compile Include="fAcademico_Familia.cs" />
     <Compile Include="fBiblioteca_Libros.cs" />
     <Compile Include="fBiblioteca_Prestamos.cs" />
+    <Compile Include="fConfiguracion_CodigoID.cs" />
     <Compile Include="fGestion_DatosMedicos.cs" />
     <Compile Include="fGestion_DatosPersonales.cs" />
     <Compile Include="fGestion_Empleados.cs" />

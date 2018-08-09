@@ -13,10 +13,9 @@ namespace CapaDatos
     {
         //Llaves primarias
         private int _Iddatosmedicos;
-        private int _Idempleados;
+        private int _Idempleado;
 
         //Campos Auxiliares
-        private string _Auto;
         private string _Filtro;
 
         //Datos Medicos
@@ -40,19 +39,6 @@ namespace CapaDatos
             set
             {
                 _Iddatosmedicos = value;
-            }
-        }
-
-        public string Auto
-        {
-            get
-            {
-                return _Auto;
-            }
-
-            set
-            {
-                _Auto = value;
             }
         }
 
@@ -186,16 +172,16 @@ namespace CapaDatos
             }
         }
 
-        public int Idempleados
+        public int Idempleado
         {
             get
             {
-                return _Idempleados;
+                return _Idempleado;
             }
 
             set
             {
-                _Idempleados = value;
+                _Idempleado = value;
             }
         }
 
@@ -207,16 +193,17 @@ namespace CapaDatos
         public Conexion_Gestion_DatosMedicos(
 
             //Datos Medicos
-            int iddatosmedicos, int idempleado,string rh, string eps, string alimentos, string animales, string insectos,
+            int iddatosmedicos, int idempleado, string rh, string eps, string alimentos, string animales, string insectos,
             string medicamentos, string plantas, string indicaciones,
 
             //Filtros de Busquda
-            string filtro, string auto, string codigoid
+            string filtro, string codigoid
 
             )
         {
-            this.Idempleados = idempleado;
             //Datos Medicos
+            this.Idempleado = idempleado;
+
             this.RH = rh;
             this.Eps = eps;
             this.Alimentos = alimentos;
@@ -228,7 +215,6 @@ namespace CapaDatos
 
             //Filtros de Busquda
             this.Filtro = filtro;
-            this.Auto = auto;
             this.CodigoID = codigoid;
         }
 
@@ -255,25 +241,18 @@ namespace CapaDatos
                 ParIddatosmedicos.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParIddatosmedicos);
 
-                SqlParameter ParIdempleado = new SqlParameter();
-                ParIdempleado.ParameterName = "@Idempleado";
-                ParIdempleado.SqlDbType = SqlDbType.Int;
-                ParIdempleado.Value = Salud.Idempleados;
-                SqlCmd.Parameters.Add(ParIdempleado);
+                //SqlParameter ParIdempleado = new SqlParameter();
+                //ParIdempleado.ParameterName = "@Idempleado";
+                //ParIdempleado.SqlDbType = SqlDbType.Int;
+                //ParIdempleado.Value = Salud.Idempleado;
+                //SqlCmd.Parameters.Add(ParIdempleado);
 
                 SqlParameter ParCodigoID = new SqlParameter();
                 ParCodigoID.ParameterName = "@CodigoID";
                 ParCodigoID.SqlDbType = SqlDbType.VarChar;
-                ParCodigoID.Size = 20;
+                ParCodigoID.Size = 50;
                 ParCodigoID.Value = Salud.CodigoID;
                 SqlCmd.Parameters.Add(ParCodigoID);
-
-                SqlParameter ParAuto = new SqlParameter();
-                ParAuto.ParameterName = "@Auto";
-                ParAuto.SqlDbType = SqlDbType.VarChar;
-                ParAuto.Size = 1;
-                ParAuto.Value = Salud.Auto;
-                SqlCmd.Parameters.Add(ParAuto);
 
                 SqlParameter ParRh = new SqlParameter();
                 ParRh.ParameterName = "@Rh";

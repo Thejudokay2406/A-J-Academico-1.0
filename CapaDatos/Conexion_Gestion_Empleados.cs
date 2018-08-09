@@ -15,11 +15,10 @@ namespace CapaDatos
         private int _Idempleados;
         private int _Idrol;
 
-        private string _Auto;
         private string _Estado;
         private string _Filtro;
 
-        //Datos Basicos PRUEBA DE CONEXION
+        //Datos Basicos
         private string _CodigoID;
         private string _Empleado;
         private string _Profesion;
@@ -43,19 +42,6 @@ namespace CapaDatos
             set
             {
                 _Idempleados = value;
-            }
-        }
-
-        public string Auto
-        {
-            get
-            {
-                return _Auto;
-            }
-
-            set
-            {
-                _Auto = value;
             }
         }
 
@@ -265,9 +251,8 @@ namespace CapaDatos
             string idempleados, string idrol, string Empleado, string Profesion, string Identificacion, int N_Identificacion, string Expedicion, DateTime FechaExpedicion, string Email, string Telefono, 
             string Direccion, DateTime FechaDeIngreso, DateTime Fechadesalida,
 
-            string auto, string filtro, string estado)
+            string filtro, string estado)
         {
-            this.Auto = auto;
             this.Estado=estado;
             this.Filtro = filtro;
 
@@ -284,26 +269,19 @@ namespace CapaDatos
             this.Fechadesalida = Fechadesalida;
         }
 
-        public string Guardar_DatosBasicos(Conexion_Gestion_Empleados DatosBasicos,
-            List<Conexion_Gestion_Experiencias> Detalle_Experiencia, List<Conexion_Gestion_Formacion> Detalle_Formacion,
-            List<Conexion_Gestion_Referencia> Detalle_Referencia)
+        public string Guardar_DatosBasicos(Conexion_Gestion_Empleados DatosBasicos)
         {
-            string rptaDetalleExperiencia = "";
-            string rptaDetalleFormacion = "";
-            string rptaDetalleReferencia = "";
-
+            string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-                //Código
+                //Jalo la conexion de la base de datos 
                 SqlCon.ConnectionString = Conexion_BaseDeDatos.Cn;
                 SqlCon.Open();
-                //Establecer la transacción
-                SqlTransaction SqlTra = SqlCon.BeginTransaction();
-                //Establecer el Comando
+
+                //Establecer la conexion para mandar a la base de datos
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.Transaction = SqlTra;
                 SqlCmd.CommandText = "Gestion.AJ_Empleado";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
@@ -323,7 +301,7 @@ namespace CapaDatos
                 SqlParameter ParCodigoID = new SqlParameter();
                 ParCodigoID.ParameterName = "@CodigoID";
                 ParCodigoID.SqlDbType = SqlDbType.VarChar;
-                ParCodigoID.Size = 20;
+                ParCodigoID.Size = 50;
                 ParCodigoID.Value = DatosBasicos.CodigoID;
                 SqlCmd.Parameters.Add(ParCodigoID);
 
@@ -408,158 +386,21 @@ namespace CapaDatos
                 ParEstadoSistema.Value = DatosBasicos.Estado;
                 SqlCmd.Parameters.Add(ParEstadoSistema);
 
-                //Ejecutamos nuestro comando 
+                //ejecutamos el envio de datos
 
-                //COMANDO PARA DETALLE DE EXPERIENCIA
-                rptaDetalleExperiencia = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-                rptaDetalleFormacion = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-                rptaDetalleReferencia = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-                if (rptaDetalleExperiencia.Equals("OK") && rptaDetalleFormacion.Equals("OK") && rptaDetalleReferencia.Equals("OK"))
-                {
-                    //Obtenemos el codigo del ingreso que se genero por la base de datos
-
-                    this.Idempleados = Convert.ToInt32(SqlCmd.Parameters["@Idempleado"].Value);
-                    foreach (Conexion_Gestion_Experiencias det in Detalle_Experiencia)
-                    {
-                        //Establecemos el codigo del ingreso que se autogenero
-                        det.Idempleados = this.Idempleados;
-                        //Llamamos al metodo insertar de la clase DetalleIngreso
-                        //y le pasamos la conexion y la transaccion que debe de usar
-                        rptaDetalleExperiencia = det.Guardar_Experiencia(det, ref SqlCon, ref SqlTra);
-                        if (!rptaDetalleExperiencia.Equals("OK"))
-                        {
-                            //Si ocurre un error al insertar un detalle de ingreso salimos del for
-                            break;
-                        }
-                    }
-
-                    foreach (Conexion_Gestion_Formacion det in Detalle_Formacion)
-                    {
-                        //Establecemos el codigo del ingreso que se autogenero
-                        det.Idempleados = this.Idempleados;
-                        //Llamamos al metodo insertar de la clase DetalleIngreso
-                        //y le pasamos la conexion y la transaccion que debe de usar
-                        rptaDetalleFormacion = det.Guardar_Formacion(det, ref SqlCon, ref SqlTra);
-                        if (!rptaDetalleFormacion.Equals("OK"))
-                        {
-                            //Si ocurre un error al insertar un detalle de ingreso salimos del for
-                            break;
-                        }
-                    }
-
-                    foreach (Conexion_Gestion_Referencia det in Detalle_Referencia)
-                    {
-                        //Establecemos el codigo del ingreso que se autogenero
-                        det.Idempleados = this.Idempleados;
-                        //Llamamos al metodo insertar de la clase DetalleIngreso
-                        //y le pasamos la conexion y la transaccion que debe de usar
-                        rptaDetalleReferencia = det.Guardar_Referencia(det, ref SqlCon, ref SqlTra);
-                        if (!rptaDetalleReferencia.Equals("OK"))
-                        {
-                            //Si ocurre un error al insertar un detalle de ingreso salimos del for
-                            break;
-                        }
-                    }
-
-                }
-                
-                ////COMANDO PARA DETALLE DE EXPERIENCIA
-                //rptaDetalleExperiencia = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-                //if (rptaDetalleExperiencia.Equals("OK"))
-                //{
-                //    //Obtenemos el codigo del ingreso que se genero por la base de datos
-
-                //    this.Idempleados = Convert.ToInt32(SqlCmd.Parameters["@Idempleados"].Value);
-                //    foreach (Conexion_Gestion_Experiencias det in Detalle_Experiencia)
-                //    {
-                //        //Establecemos el codigo del ingreso que se autogenero
-                //        det.Idempleados = this.Idempleados;
-                //        //Llamamos al metodo insertar de la clase DetalleIngreso
-                //        //y le pasamos la conexion y la transaccion que debe de usar
-                //        rptaDetalleExperiencia = det.Guardar_Experiencia(det, ref SqlCon, ref SqlTra);
-                //        if (!rptaDetalleExperiencia.Equals("OK"))
-                //        {
-                //            //Si ocurre un error al insertar un detalle de ingreso salimos del for
-                //            break;
-                //        }
-                //    }
-                //}
-
-
-                ////COMANDO PARA DETALLE DE FORMACION
-                //rptaDetalleFormacion = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-                //if (rptaDetalleFormacion.Equals("OK"))
-                //{
-                //    //Obtenemos el codigo del ingreso que se genero por la base de datos
-
-                //    this.Idempleados = Convert.ToInt32(SqlCmd.Parameters["@Idempleados"].Value);
-                //    foreach (Conexion_Gestion_Formacion det in Detalle_Formacion)
-                //    {
-                //        //Establecemos el codigo del ingreso que se autogenero
-                //        det.Idempleados = this.Idempleados;
-                //        //Llamamos al metodo insertar de la clase DetalleIngreso
-                //        //y le pasamos la conexion y la transaccion que debe de usar
-                //        rptaDetalleFormacion = det.Guardar_Formacion(det, ref SqlCon, ref SqlTra);
-                //        if (!rptaDetalleFormacion.Equals("OK"))
-                //        {
-                //            //Si ocurre un error al insertar un detalle de ingreso salimos del for
-                //            break;
-                //        }
-                //    }
-                //}
-
-                ////COMANDO PARA DETALLE DE REFERENCIA
-                //rptaDetalleReferencia = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-                //if (rptaDetalleReferencia.Equals("OK"))
-                //{
-                //    //Obtenemos el codigo del ingreso que se genero por la base de datos
-
-                //    this.Idempleados = Convert.ToInt32(SqlCmd.Parameters["@Idempleados"].Value);
-                //    foreach (Conexion_Gestion_Referencia det in Detalle_Referencia)
-                //    {
-                //        //Establecemos el codigo del ingreso que se autogenero
-                //        det.Idempleados = this.Idempleados;
-                //        //Llamamos al metodo insertar de la clase DetalleIngreso
-                //        //y le pasamos la conexion y la transaccion que debe de usar
-                //        rptaDetalleReferencia = det.Guardar_Referencia(det, ref SqlCon, ref SqlTra);
-                //        if (!rptaDetalleReferencia.Equals("OK"))
-                //        {
-                //            //Si ocurre un error al insertar un detalle de ingreso salimos del for
-                //            break;
-                //        }
-                //    }
-                //}
-
-                if (rptaDetalleExperiencia.Equals("OK") && rptaDetalleFormacion.Equals("OK") && rptaDetalleReferencia.Equals("OK"))
-                {
-                    //Se inserto todo los detalles y confirmamos la transaccion
-                    SqlTra.Commit();
-                }
-                else
-                {
-                    //Algun detalle no se inserto y negamos la transaccion
-                    SqlTra.Rollback();
-                }
-
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Error al Registrar";
             }
             catch (Exception ex)
             {
-                rptaDetalleExperiencia = ex.Message;
-                rptaDetalleFormacion = ex.Message;
-                rptaDetalleReferencia = ex.Message;
 
+                rpta = ex.Message;
             }
+
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
-            return rptaDetalleExperiencia;
-            return rptaDetalleFormacion;
-            return rptaDetalleReferencia;
+            return rpta;
         }
 
         
@@ -661,7 +502,31 @@ namespace CapaDatos
 
         }
 
+        public DataTable Mostrar_CodigoID()
+        {
+            DataTable DtResultado = new DataTable("Gestion.Empleado");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion_BaseDeDatos.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "Gestion.Auto_Empleado";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
+            catch (Exception ex)
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
+            {
+
+                DtResultado = null;
+            }
+            return DtResultado;
+        }
 
     }
 }

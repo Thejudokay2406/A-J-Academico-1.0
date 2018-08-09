@@ -46,6 +46,30 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Configuracion\Cadena_Conexion.cs" />
+    <Compile Include="frmBiblioteca_Editorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBiblioteca_Editorial.Designer.cs">
+      <DependentUpon>frmBiblioteca_Editorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBiblioteca_Grupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBiblioteca_Grupos.Designer.cs">
+      <DependentUpon>frmBiblioteca_Grupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBiblioteca_Niveles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBiblioteca_Niveles.Designer.cs">
+      <DependentUpon>frmBiblioteca_Niveles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfiguracion_CodigoID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfiguracion_CodigoID.Designer.cs">
+      <DependentUpon>frmConfiguracion_CodigoID.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExaminarAcademico_Alumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +135,18 @@
     </Compile>
     <Compile Include="frmExaminarProduccion_Impuestos.Designer.cs">
       <DependentUpon>frmExaminarProduccion_Impuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionHumana_FaltasInjustificadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionHumana_FaltasInjustificadas.Designer.cs">
+      <DependentUpon>frmGestionHumana_FaltasInjustificadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionHumana_FaltasJustificadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionHumana_FaltasJustificadas.Designer.cs">
+      <DependentUpon>frmGestionHumana_FaltasJustificadas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPlantel_Informacion.cs">
       <SubType>Form</SubType>
@@ -342,6 +378,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="frmBiblioteca_Temas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBiblioteca_Temas.Designer.cs">
+      <DependentUpon>frmBiblioteca_Temas.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
@@ -350,6 +392,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmBiblioteca_Grupos.resx">
+      <DependentUpon>frmBiblioteca_Grupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBiblioteca_Niveles.resx">
+      <DependentUpon>frmBiblioteca_Niveles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfiguracion_CodigoID.resx">
+      <DependentUpon>frmConfiguracion_CodigoID.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmExaminarAcademico_Alumno.resx">
       <DependentUpon>frmExaminarAcademico_Alumno.cs</DependentUpon>
     </EmbeddedResource>
@@ -497,6 +548,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBiblioteca_Temas.resx">
+      <DependentUpon>frmBiblioteca_Temas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

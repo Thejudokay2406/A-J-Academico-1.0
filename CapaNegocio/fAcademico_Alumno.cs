@@ -239,10 +239,7 @@ namespace CapaNegocio
             return Obj.Examinar_Alumno(Obj);
         }
 
-        public static DataTable AutoCompletar_CodigoID()
-        {
-            return new Conexion_Academico_Alumno().AutoCompletar_CodigoID();
-        }
+        
 
     }
 }

@@ -263,5 +263,33 @@ namespace CapaPresentacion
             frmSistemaAcademico_Bitacora.MdiParent = this;
             frmSistemaAcademico_Bitacora.Show();
         }
+
+        private void editoralesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBiblioteca_Editorial frmBiblioteca_Editorial = new frmBiblioteca_Editorial();
+            frmBiblioteca_Editorial.MdiParent = this;
+            frmBiblioteca_Editorial.Show();
+        }
+
+        private void gruposToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmBiblioteca_Grupos frmBiblioteca_Grupos = new frmBiblioteca_Grupos();
+            frmBiblioteca_Grupos.MdiParent = this;
+            frmBiblioteca_Grupos.Show();
+        }
+
+        private void nivelesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBiblioteca_Niveles frmBiblioteca_Niveles = new frmBiblioteca_Niveles();
+            frmBiblioteca_Niveles.MdiParent = this;
+            frmBiblioteca_Niveles.Show();
+        }
+
+        private void temasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBiblioteca_Temas frmBiblioteca_Temas = new frmBiblioteca_Temas();
+            frmBiblioteca_Temas.MdiParent = this;
+            frmBiblioteca_Temas.Show();
+        }
     }
 }

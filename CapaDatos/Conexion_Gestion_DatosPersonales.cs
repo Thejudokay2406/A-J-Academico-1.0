@@ -14,10 +14,10 @@ namespace CapaDatos
         //Llaves primarias
         private int _Iddatospersonales;
         private int _Idempleados;
+
         private string _CodigoID;
 
         //Busqueda
-        private string _Auto;
         private string _Filtro;
 
         private string _Profesion;
@@ -61,19 +61,6 @@ namespace CapaDatos
             set
             {
                 _CodigoID = value;
-            }
-        }
-
-        public string Auto
-        {
-            get
-            {
-                return _Auto;
-            }
-
-            set
-            {
-                _Auto = value;
             }
         }
 
@@ -335,10 +322,9 @@ namespace CapaDatos
             string extras, string banco, string cuenta, string numero,
             string pago, string moneda, string recomendado, DateTime nacimiento, string hijos, string plantel, string civil,
             
-            string auto, string filtro)
+            string filtro)
         {
             this.Idempleados = idempleado;
-            this.Auto = auto;
             this.Filtro = filtro;
 
             this.Profesion = profesion;
@@ -362,6 +348,7 @@ namespace CapaDatos
 
         public string Guardar_DatosBasicos(Conexion_Gestion_DatosPersonales DatosBasicos)
         {
+
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
@@ -383,25 +370,12 @@ namespace CapaDatos
                 ParIddatospersonales.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParIddatospersonales);
 
-                SqlParameter ParIdempleado = new SqlParameter();
-                ParIdempleado.ParameterName = "@Idempleado";
-                ParIdempleado.SqlDbType = SqlDbType.Int;
-                ParIdempleado.Value = DatosBasicos.Idempleados;
-                SqlCmd.Parameters.Add(ParIdempleado);
-
                 SqlParameter ParCodigoID = new SqlParameter();
                 ParCodigoID.ParameterName = "@CodigoID";
                 ParCodigoID.SqlDbType = SqlDbType.VarChar;
-                ParCodigoID.Size = 20;
+                ParCodigoID.Size = 50;
                 ParCodigoID.Value = DatosBasicos.CodigoID;
                 SqlCmd.Parameters.Add(ParCodigoID);
-
-                SqlParameter ParAuto = new SqlParameter();
-                ParAuto.ParameterName = "@Auto";
-                ParAuto.SqlDbType = SqlDbType.VarChar;
-                ParAuto.Size = 1;
-                ParAuto.Value = DatosBasicos.Auto;
-                SqlCmd.Parameters.Add(ParAuto);
 
                 SqlParameter ParProfesion = new SqlParameter();
                 ParProfesion.ParameterName = "@Profesion";
@@ -521,12 +495,7 @@ namespace CapaDatos
                 ParCivil.Value = DatosBasicos.Civil;
                 SqlCmd.Parameters.Add(ParCivil);
 
-                
-
-                
-                //Ejecutamos nuestro comando 
-
-                // ejecutamos el envio de datos
+                //ejecutamos el envio de datos
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Error al Registrar";
             }

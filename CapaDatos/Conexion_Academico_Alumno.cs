@@ -763,31 +763,6 @@ namespace CapaDatos
             return DtResultado;
         }
 
-        public DataTable AutoCompletar_CodigoID()
-        {
-            DataTable DtResultado = new DataTable("Academico.DatosBasicos");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion_BaseDeDatos.Cn;
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "Academico.CodigoID_Alumnos";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                SqlDat.Fill(DtResultado);
-
-            }
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
-            {
-
-                DtResultado = null;
-            }
-            return DtResultado;
-        }
-
+        
     }
 }
