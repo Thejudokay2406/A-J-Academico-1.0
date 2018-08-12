@@ -250,11 +250,11 @@
     <Compile Include="frmSistemaAcademico_CodigoID.Designer.cs">
       <DependentUpon>frmSistemaAcademico_CodigoID.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTesoreria_OrdenDeMatricula.cs">
+    <Compile Include="frmAcademico_OrdenDeMatricula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTesoreria_OrdenDeMatricula.Designer.cs">
-      <DependentUpon>frmTesoreria_OrdenDeMatricula.cs</DependentUpon>
+    <Compile Include="frmAcademico_OrdenDeMatricula.Designer.cs">
+      <DependentUpon>frmAcademico_OrdenDeMatricula.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTesoreria_ValoresAcademicos.cs">
       <SubType>Form</SubType>
@@ -347,11 +347,11 @@
       <DependentUpon>frmSistemaAcademico_AñoElectivo.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSistemaAcademico_Cursos.cs">
+    <Compile Include="frmAcademico_Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSistemaAcademico_Cursos.Designer.cs">
-      <DependentUpon>frmSistemaAcademico_Cursos.cs</DependentUpon>
+    <Compile Include="frmAcademico_Cursos.Designer.cs">
+      <DependentUpon>frmAcademico_Cursos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSistemaAcademico_Jornada.cs">
       <SubType>Form</SubType>
@@ -485,8 +485,8 @@
     <EmbeddedResource Include="frmSistemaAcademico_CodigoID.resx">
       <DependentUpon>frmSistemaAcademico_CodigoID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTesoreria_OrdenDeMatricula.resx">
-      <DependentUpon>frmTesoreria_OrdenDeMatricula.cs</DependentUpon>
+    <EmbeddedResource Include="frmAcademico_OrdenDeMatricula.resx">
+      <DependentUpon>frmAcademico_OrdenDeMatricula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTesoreria_ValoresAcademicos.resx">
       <DependentUpon>frmTesoreria_ValoresAcademicos.cs</DependentUpon>
@@ -533,8 +533,8 @@
     <EmbeddedResource Include="frmSistemaAcademico_AñoElectivo.resx">
       <DependentUpon>frmSistemaAcademico_AñoElectivo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSistemaAcademico_Cursos.resx">
-      <DependentUpon>frmSistemaAcademico_Cursos.cs</DependentUpon>
+    <EmbeddedResource Include="frmAcademico_Cursos.resx">
+      <DependentUpon>frmAcademico_Cursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSistemaAcademico_Jornada.resx">
       <DependentUpon>frmSistemaAcademico_Jornada.cs</DependentUpon>

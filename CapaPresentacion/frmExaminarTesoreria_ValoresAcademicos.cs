@@ -52,7 +52,7 @@ namespace CapaPresentacion
         {
             try
             {
-                frmTesoreria_OrdenDeMatricula form = frmTesoreria_OrdenDeMatricula.GetInstancia();
+                frmAcademico_OrdenDeMatricula form = frmAcademico_OrdenDeMatricula.GetInstancia();
                 string par1, par2, par3;
                 par1 = Convert.ToString(this.DGResultados.CurrentRow.Cells["Idvalores"].Value);
                 par2 = Convert.ToString(this.DGResultados.CurrentRow.Cells["Valor"].Value);

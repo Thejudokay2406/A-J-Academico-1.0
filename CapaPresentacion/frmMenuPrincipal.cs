@@ -59,16 +59,9 @@ namespace CapaPresentacion
             frmConfiguracion_DatosDeSeguridad.Show();
         }
 
-        private void alumnoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAcademico_Alumnos frmAcademico_Alumnos = frmAcademico_Alumnos.GetInstancia();
-            frmAcademico_Alumnos.MdiParent = this;
-            frmAcademico_Alumnos.Show();
-        }
-
         private void cursosAcademicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSistemaAcademico_Cursos frmSistemaAcademico_Cursos = new frmSistemaAcademico_Cursos();
+            frmAcademico_Cursos frmSistemaAcademico_Cursos = new frmAcademico_Cursos();
             frmSistemaAcademico_Cursos.MdiParent = this;
             frmSistemaAcademico_Cursos.Show();
         }
@@ -117,9 +110,7 @@ namespace CapaPresentacion
 
         private void ordenDeMatriculaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmTesoreria_OrdenDeMatricula frmAcademico_Familias = frmTesoreria_OrdenDeMatricula.GetInstancia();
-            frmAcademico_Familias.MdiParent = this;
-            frmAcademico_Familias.Show();
+            
         }
 
         private void valoresAcademicosToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -129,26 +120,7 @@ namespace CapaPresentacion
             frmFinanciera_ValoresAcademicos.Show();
         }
 
-        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAcademico_Bitacora frmAcademico_Bitacora = frmAcademico_Bitacora.GetInstancia();
-            frmAcademico_Bitacora.MdiParent = this;
-            frmAcademico_Bitacora.Show();
-        }
-
-        private void matriculaAcademicaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAcademico_Matricula frmAcademico_Matricula = new frmAcademico_Matricula();
-            frmAcademico_Matricula.MdiParent = this;
-            frmAcademico_Matricula.Show();
-        }
-
         private void boletinesAcademicosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void calificacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -219,13 +191,6 @@ namespace CapaPresentacion
             
         }
 
-        private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAcademico_Asistencia frmAcademico_Asistencia = new frmAcademico_Asistencia();
-            frmAcademico_Asistencia.MdiParent = this;
-            frmAcademico_Asistencia.Show();
-        }
-
         private void prestamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBiblioteca_Prestamos frmBiblioteca_Prestamos = frmBiblioteca_Prestamos.GetInstancia();
@@ -250,11 +215,6 @@ namespace CapaPresentacion
             frmConfiguracion_DatosDeSeguridad frmConfiguracion_DatosDeSeguridad = new frmConfiguracion_DatosDeSeguridad();
             frmConfiguracion_DatosDeSeguridad.MdiParent = this;
             frmConfiguracion_DatosDeSeguridad.Show();
-        }
-
-        private void plantelToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tipoDeBitacorasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -290,6 +250,35 @@ namespace CapaPresentacion
             frmBiblioteca_Temas frmBiblioteca_Temas = new frmBiblioteca_Temas();
             frmBiblioteca_Temas.MdiParent = this;
             frmBiblioteca_Temas.Show();
+        }
+
+        private void registroAcademicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAcademico_Alumnos frmAcademico_Alumnos = frmAcademico_Alumnos.GetInstancia();
+            frmAcademico_Alumnos.MdiParent = this;
+            frmAcademico_Alumnos.Show();
+        }
+
+        private void tomaDeAsistenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAcademico_Asistencia frmAcademico_Asistencia = new frmAcademico_Asistencia();
+            frmAcademico_Asistencia.MdiParent = this;
+            frmAcademico_Asistencia.Show();
+
+        }
+
+        private void matriculasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAcademico_Matricula frmAcademico_Matricula = new frmAcademico_Matricula();
+            frmAcademico_Matricula.MdiParent = this;
+            frmAcademico_Matricula.Show();
+        }
+
+        private void ordenDeMatriculaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAcademico_OrdenDeMatricula frmAcademico_Familias = frmAcademico_OrdenDeMatricula.GetInstancia();
+            frmAcademico_Familias.MdiParent = this;
+            frmAcademico_Familias.Show();
         }
     }
 }

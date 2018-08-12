@@ -147,44 +147,22 @@ namespace CapaNegocio
             return Obj.Guardar_Salud(Obj);
         }
 
-        public static string Guardar_OtrosDatos
-            (//Otros Datos
-            string auto, string institutoanterior, string nombreinstituto, string ultimocurso, string ultimajornada,
-            string documento1, string documento2, string documento3, string documento4, string documento5, string documento6, string documento7, string documento8, string documento9,
-            string documento10, string documento11, string documento12, string documento13, string documento14, string documento15, string documento16, string documento17, string documento18, string documento19, string documento20)
-        {
-            Conexion_Academico_Otros Obj = new Conexion_Academico_Otros();
-            //Otros Datos
-            Obj.Auto = auto;
-            Obj.InstitutoAnterior = institutoanterior;
-            Obj.NombreInstituto = nombreinstituto;
-            Obj.UltimoCurso = ultimocurso;
-            Obj.UltimaJornada = ultimajornada;
-            Obj.Documento1 = documento1;
-            Obj.Documento2 = documento2;
-            Obj.Documento3 = documento3;
-            Obj.Documento4 = documento4;
-            Obj.Documento5 = documento5;
-            Obj.Documento6 = documento6;
-            Obj.Documento7 = documento7;
-            Obj.Documento8 = documento8;
-            Obj.Documento9 = documento9;
-            Obj.Documento10 = documento10;
-            Obj.Documento11 = documento11;
-            Obj.Documento12 = documento12;
-            Obj.Documento13 = documento13;
-            Obj.Documento14 = documento14;
-            Obj.Documento15 = documento15;
-            Obj.Documento16 = documento16;
-            Obj.Documento17 = documento17;
-            Obj.Documento18 = documento18;
-            Obj.Documento19 = documento19;
-            Obj.Documento20 = documento20;
+        //public static string Guardar_OtrosDatos
+        //    (//Otros Datos
+        //    string auto, string institutoanterior, string nombreinstituto, string ultimocurso, string ultimajornada)
+        //{
+        //    Conexion_Academico_Otros Obj = new Conexion_Academico_Otros();
+        //    //Otros Datos
+        //    Obj.Auto = auto;
+        //    Obj.InstitutoAnterior = institutoanterior;
+        //    Obj.NombreInstituto = nombreinstituto;
+        //    Obj.UltimoCurso = ultimocurso;
+        //    Obj.UltimaJornada = ultimajornada;
 
-            return Obj.Guardar_Otros(Obj);
-        }
+        //    return Obj.Guardar_Otros(Obj);
+        //}
 
-        public static string Guardar_InformacionAcademica(string auto, string cursoacademico, string jornadaacademico, string periodoacademico, string Estadoacademico, DateTime fechadeingresoacademico, DateTime fechaderegistroacademico, byte[] Foto, int codigoid, string observacion)
+        public static string Guardar_InformacionAcademica(string auto, string cursoacademico, string jornadaacademico, string periodoacademico, string Estadoacademico, DateTime fechaderegistroacademico, byte[] Foto, int codigoid)
         {
             Conexion_Academico_InformacionAcademica Obj = new Conexion_Academico_InformacionAcademica();
             //Informacion Academica
@@ -193,11 +171,9 @@ namespace CapaNegocio
             Obj.Jornada_Academico = jornadaacademico;
             Obj.Periodo_Academico = periodoacademico;
             Obj.Estado_Academico = Estadoacademico;
-            Obj.FechaDeIngreso_Academico = fechadeingresoacademico;
             Obj.FechaDeRegistro_Academico = fechaderegistroacademico;
             Obj.Foto = Foto;
             Obj.CodigoID = codigoid;
-            Obj.Observacion_Academica = observacion;
 
             return Obj.Guardar_InformacionAcademica(Obj);
         }

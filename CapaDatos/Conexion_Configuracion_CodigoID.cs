@@ -179,7 +179,7 @@ namespace CapaDatos
             this.Auto = auto;
         }
 
-        public string Guardar_Salud(Conexion_Configuracion_CodigoID CodigoID)
+        public string Guardar_IDAlumno(Conexion_Configuracion_CodigoID Alumno)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -196,88 +196,108 @@ namespace CapaDatos
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Comienzo a mandar a la base de datos
-                SqlParameter ParIdalumno = new SqlParameter();
-                ParIdalumno.ParameterName = "@Iddatosmedicos";
-                ParIdalumno.SqlDbType = SqlDbType.Int;
-                ParIdalumno.Direction = ParameterDirection.Output;
-                SqlCmd.Parameters.Add(ParIdalumno);
-
-                SqlParameter ParCodigoID = new SqlParameter();
-                ParCodigoID.ParameterName = "@CodigoID";
-                ParCodigoID.SqlDbType = SqlDbType.Int;
-                ParCodigoID.Value = CodigoID.CodigoID;
-                SqlCmd.Parameters.Add(ParCodigoID);
+                SqlParameter ParIdcodigoid = new SqlParameter();
+                ParIdcodigoid.ParameterName = "@Idcodigoid";
+                ParIdcodigoid.SqlDbType = SqlDbType.Int;
+                ParIdcodigoid.Direction = ParameterDirection.Output;
+                SqlCmd.Parameters.Add(ParIdcodigoid);
 
                 SqlParameter ParAuto = new SqlParameter();
                 ParAuto.ParameterName = "@Auto";
                 ParAuto.SqlDbType = SqlDbType.VarChar;
                 ParAuto.Size = 1;
-                ParAuto.Value = CodigoID.Auto;
+                ParAuto.Value = Alumno.Auto;
                 SqlCmd.Parameters.Add(ParAuto);
 
-                SqlParameter ParRh = new SqlParameter();
-                ParRh.ParameterName = "@Rh";
-                ParRh.SqlDbType = SqlDbType.VarChar;
-                ParRh.Size = 10;
-                ParRh.Value = CodigoID.GrupoSanguineo;
-                SqlCmd.Parameters.Add(ParRh);
+                SqlParameter ParLetra_Alumno = new SqlParameter();
+                ParLetra_Alumno.ParameterName = "@Letra_Al";
+                ParLetra_Alumno.SqlDbType = SqlDbType.VarChar;
+                ParLetra_Alumno.Size = 50;
+                ParLetra_Alumno.Value = Alumno.Letra_Alumno;
+                SqlCmd.Parameters.Add(ParLetra_Alumno);
 
-                SqlParameter ParEPS = new SqlParameter();
-                ParEPS.ParameterName = "@EPS";
-                ParEPS.SqlDbType = SqlDbType.VarChar;
-                ParEPS.Size = 20;
-                ParEPS.Value = CodigoID.Eps;
-                SqlCmd.Parameters.Add(ParEPS);
+                SqlParameter ParSimbolo_Al = new SqlParameter();
+                ParSimbolo_Al.ParameterName = "@Simbolo_Al";
+                ParSimbolo_Al.SqlDbType = SqlDbType.VarChar;
+                ParSimbolo_Al.Size = 50;
+                ParSimbolo_Al.Value = Alumno.Simbolo_Alumno;
+                SqlCmd.Parameters.Add(ParSimbolo_Al);
 
-                SqlParameter ParAlimentos = new SqlParameter();
-                ParAlimentos.ParameterName = "@Alimentos";
-                ParAlimentos.SqlDbType = SqlDbType.VarChar;
-                ParAlimentos.Size = 100;
-                ParAlimentos.Value = CodigoID.Alimentos;
-                SqlCmd.Parameters.Add(ParAlimentos);
+                SqlParameter ParNumero_Alumno = new SqlParameter();
+                ParNumero_Alumno.ParameterName = "@Numero_Al";
+                ParNumero_Alumno.SqlDbType = SqlDbType.VarChar;
+                ParNumero_Alumno.Size = 50;
+                ParNumero_Alumno.Value = Alumno.Numero_Alumno;
+                SqlCmd.Parameters.Add(ParNumero_Alumno);
 
-                SqlParameter ParAnimales = new SqlParameter();
-                ParAnimales.ParameterName = "@Animales";
-                ParAnimales.SqlDbType = SqlDbType.VarChar;
-                ParAnimales.Size = 100;
-                ParAnimales.Value = CodigoID.Animales;
-                SqlCmd.Parameters.Add(ParAnimales);
 
-                SqlParameter ParInsectos = new SqlParameter();
-                ParInsectos.ParameterName = "@Insectos";
-                ParInsectos.SqlDbType = SqlDbType.VarChar;
-                ParInsectos.Size = 100;
-                ParInsectos.Value = CodigoID.Insectos;
-                SqlCmd.Parameters.Add(ParInsectos);
+                //ejecutamos el envio de datos
 
-                SqlParameter ParMedicamentos = new SqlParameter();
-                ParMedicamentos.ParameterName = "@Medicamentos";
-                ParMedicamentos.SqlDbType = SqlDbType.VarChar;
-                ParMedicamentos.Size = 100;
-                ParMedicamentos.Value = CodigoID.Medicamentos;
-                SqlCmd.Parameters.Add(ParMedicamentos);
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "Error al Registrar";
+            }
+            catch (Exception ex)
+            {
 
-                SqlParameter ParPlantas = new SqlParameter();
-                ParPlantas.ParameterName = "@Plantas";
-                ParPlantas.SqlDbType = SqlDbType.VarChar;
-                ParPlantas.Size = 100;
-                ParPlantas.Value = CodigoID.Plantas;
-                SqlCmd.Parameters.Add(ParPlantas);
+                rpta = ex.Message;
+            }
 
-                SqlParameter ParOtros = new SqlParameter();
-                ParOtros.ParameterName = "@Otros";
-                ParOtros.SqlDbType = SqlDbType.VarChar;
-                ParOtros.Size = 100;
-                ParOtros.Value = Salud.Otros;
-                SqlCmd.Parameters.Add(ParOtros);
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
 
-                SqlParameter ParIndicaciones = new SqlParameter();
-                ParIndicaciones.ParameterName = "@Indicaciones";
-                ParIndicaciones.SqlDbType = SqlDbType.VarChar;
-                ParIndicaciones.Size = 100;
-                ParIndicaciones.Value = Salud.Indicaciones;
-                SqlCmd.Parameters.Add(ParIndicaciones);
+        public string Guardar_IDEmpleado(Conexion_Configuracion_CodigoID Empleado)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Jalo la conexion de la base de datos 
+                SqlCon.ConnectionString = Conexion_BaseDeDatos.Cn;
+                SqlCon.Open();
 
+                //Establecer la conexion para mandar a la base de datos
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "Configuracion.AJ_CodigoID_Empleado";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Comienzo a mandar a la base de datos
+                SqlParameter ParIdcodigoid = new SqlParameter();
+                ParIdcodigoid.ParameterName = "@Idcodigoid";
+                ParIdcodigoid.SqlDbType = SqlDbType.Int;
+                ParIdcodigoid.Direction = ParameterDirection.Output;
+                SqlCmd.Parameters.Add(ParIdcodigoid);
+
+                SqlParameter ParAuto = new SqlParameter();
+                ParAuto.ParameterName = "@Auto";
+                ParAuto.SqlDbType = SqlDbType.VarChar;
+                ParAuto.Size = 1;
+                ParAuto.Value = Empleado.Auto;
+                SqlCmd.Parameters.Add(ParAuto);
+
+                SqlParameter ParLetra_Em = new SqlParameter();
+                ParLetra_Em.ParameterName = "@Letra_Em";
+                ParLetra_Em.SqlDbType = SqlDbType.VarChar;
+                ParLetra_Em.Size = 50;
+                ParLetra_Em.Value = Empleado.Letra_Empleado;
+                SqlCmd.Parameters.Add(ParLetra_Em);
+
+                SqlParameter ParSimbolo_Em = new SqlParameter();
+                ParSimbolo_Em.ParameterName = "@Simbolo_Em";
+                ParSimbolo_Em.SqlDbType = SqlDbType.VarChar;
+                ParSimbolo_Em.Size = 50;
+                ParSimbolo_Em.Value = Empleado.Simbolo_Empleado;
+                SqlCmd.Parameters.Add(ParSimbolo_Em);
+
+                SqlParameter ParNumero_Em = new SqlParameter();
+                ParNumero_Em.ParameterName = "@Numero_Em";
+                ParNumero_Em.SqlDbType = SqlDbType.VarChar;
+                ParNumero_Em.Size = 50;
+                ParNumero_Em.Value = Empleado.Numero_Empleado;
+                SqlCmd.Parameters.Add(ParNumero_Em);
 
 
                 //ejecutamos el envio de datos
@@ -306,7 +326,33 @@ namespace CapaDatos
                 SqlCon.ConnectionString = Conexion_BaseDeDatos.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "Configuracion.Auto_Alumno";
+                SqlCmd.CommandText = "Configuracion.Auto_CodigoID_Alumno";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
+            catch (Exception ex)
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
+            {
+
+                DtResultado = null;
+            }
+            return DtResultado;
+        }
+
+        public DataTable AutoCompletar_Empleado()
+        {
+            DataTable DtResultado = new DataTable("Configuracion.CodigoID_Empleado");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion_BaseDeDatos.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "Configuracion.Auto_CodigoID_Empleado";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);

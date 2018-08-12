@@ -11,9 +11,15 @@ namespace CapaNegocio
 {
     public class fConfiguracion_CodigoID
     {
-        public static DataTable AutoCompletar_CodigoID()
+        public static DataTable Auto_CodigoID_Alumno()
         {
             return new Conexion_Configuracion_CodigoID().AutoCompletar_Alumno();
         }
+
+        public static DataTable Auto_CodigoID_Empleado()
+        {
+            return new Conexion_Configuracion_CodigoID().AutoCompletar_Empleado();
+        }
+
     }
 }

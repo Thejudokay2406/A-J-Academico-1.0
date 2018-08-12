@@ -53,7 +53,6 @@ namespace CapaPresentacion
             this.CBInformacion_Madre.SelectedIndex = 0;
             this.CBInformacion_Padre.SelectedIndex = 0;
             this.CBIdentificacion_Acudiente.SelectedIndex = 0;
-            this.CBInstitutoAnterior.SelectedIndex = 0;
         }
 
         //public string Auto_CodigoID = "";
@@ -167,8 +166,6 @@ namespace CapaPresentacion
                 this.TBComuna.BackColor = Color.FromArgb(187, 222, 251);
                 this.CBEstado.Enabled = false;
                 this.TBTelefono.BackColor = Color.FromArgb(187, 222, 251);
-                this.TBObservacion.ReadOnly = true;
-                this.TBObservacion.BackColor = Color.FromArgb(187, 222, 251);
 
                 //Datos del Padre
 
@@ -280,8 +277,6 @@ namespace CapaPresentacion
                 this.TBInformacion_DatosMedicos.BackColor = Color.FromArgb(187, 222, 251);
 
                 //Otros Datos
-                this.CBInstitutoAnterior.DropDownStyle = ComboBoxStyle.DropDownList;
-                this.CBInstitutoAnterior.BackColor = Color.FromArgb(187, 222, 251);
                 this.TBInstitutoAnterior.ReadOnly = true;
                 this.TBInstitutoAnterior.BackColor = Color.FromArgb(187, 222, 251);
                 this.CBUltimoCurso.Enabled = false;
@@ -341,8 +336,6 @@ namespace CapaPresentacion
                 this.TBComuna.BackColor = Color.FromArgb(32, 178, 170);
                 this.CBEstado.Enabled = true;
                 this.TBTelefono.BackColor = Color.FromArgb(32, 178, 170);
-                this.TBObservacion.ReadOnly = false;
-                this.TBObservacion.BackColor = Color.FromArgb(32, 178, 170);
 
                 ////Datos del Padre
                 this.TBPadre.ReadOnly = false;
@@ -451,8 +444,6 @@ namespace CapaPresentacion
                 this.TBInformacion_DatosMedicos.BackColor = Color.FromArgb(32, 178, 170);
 
                 //Otros Datos
-                this.CBInstitutoAnterior.DropDownStyle = ComboBoxStyle.DropDownList;
-                this.CBInstitutoAnterior.BackColor = Color.FromArgb(32, 178, 170);
                 this.TBInstitutoAnterior.ReadOnly = false;
                 this.TBInstitutoAnterior.BackColor = Color.FromArgb(32, 178, 170);
                 this.CBUltimoCurso.Enabled = true;
@@ -550,7 +541,7 @@ namespace CapaPresentacion
         {
             try
             {
-                DataTable Datos = CapaNegocio.fConfiguracion_CodigoID.AutoCompletar_CodigoID();
+                DataTable Datos = CapaNegocio.fConfiguracion_CodigoID.Auto_CodigoID_Alumno();
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
@@ -777,10 +768,9 @@ namespace CapaPresentacion
 
                         rptaDatosMedicos = fAcademico_Alumno.Guardar_DatosMedicos("1", Convert.ToInt32(this.TBCodigoID.Text), this.CBSangre_DatosMedicos.Text, this.CBEps_Medicos.Text, this.TBAlimentos_DatosMedicos.Text, this.TBAnimales_DatosMedicos.Text, this.TBInsectos_DatosMedicos.Text, this.TBMedicamentos_DatosMedicos.Text, this.TBPlantas_DatosMedicos.Text, TBOtro_DatosMedicos.Text, this.TBInformacion_DatosMedicos.Text);
 
-                        rptaOtrosDatos = fAcademico_Alumno.Guardar_OtrosDatos("1", this.CBInstitutoAnterior.Text, this.TBInstitutoAnterior.Text, this.CBUltimoCurso.Text, this.CBUltimaJornada.Text, this.checkBox1.Text, this.checkBox2.Text, this.checkBox3.Text, this.checkBox4.Text, this.checkBox5.Text, this.checkBox6.Text, this.checkBox7.Text, this.checkBox8.Text, this.checkBox9.Text, this.checkBox10.Text,
-                        this.checkBox11.Text, this.checkBox12.Text, checkBox13.Text, this.checkBox14.Text, this.checkBox15.Text, this.checkBox16.Text, this.checkBox17.Text, this.checkBox18.Text, this.checkBox19.Text, this.checkBox20.Text);
+                        //rptaOtrosDatos = fAcademico_Alumno.Guardar_OtrosDatos("1", this.TBInstitutoAnterior.Text, this.,this.CBUltimoCurso.Text, this.CBUltimaJornada.Text);
 
-                        rptaInformacionAcademicas = fAcademico_Alumno.Guardar_InformacionAcademica("1", this.CBCurso.Text, this.CBJornada.Text, this.CBPeriodo.Text, this.CBEstado.Text, this.DTFechaDeIngreso.Value, this.DTFechaDeRegistro.Value, imagen, Convert.ToInt32(this.TBCodigoID.Text), this.TBObservacion.Text);
+                        rptaInformacionAcademicas = fAcademico_Alumno.Guardar_InformacionAcademica("1", this.CBCurso.Text, this.CBJornada.Text, this.CBPeriodo.Text, this.CBEstado.Text, this.DTFechaDeRegistro.Value, imagen, Convert.ToInt32(this.TBCodigoID.Text));
                     }
 
                     if (rptaDatosBasicos.Equals("OK") && rptaDatosDelPadre.Equals("OK") && rptaDatosDeLaMadre.Equals("OK") && rptaDatosDelAcudiente.Equals("OK") && rptaDatosMedicos.Equals("OK") && rptaOtrosDatos.Equals("OK") && rptaInformacionAcademicas.Equals("OK"))

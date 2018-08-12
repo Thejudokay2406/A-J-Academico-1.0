@@ -12,10 +12,10 @@ using CapaNegocio;
 
 namespace CapaPresentacion
 {
-    public partial class frmSistemaAcademico_Cursos : Form
+    public partial class frmAcademico_Cursos : Form
     {
         private bool IsNuevo = false;
-        public frmSistemaAcademico_Cursos()
+        public frmAcademico_Cursos()
         {
             InitializeComponent();
         }

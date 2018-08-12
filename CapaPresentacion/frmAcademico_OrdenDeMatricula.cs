@@ -12,21 +12,21 @@ using CapaNegocio;
 
 namespace CapaPresentacion
 {
-    public partial class frmTesoreria_OrdenDeMatricula : Form
+    public partial class frmAcademico_OrdenDeMatricula : Form
     {
         private bool IsNuevo = false;
 
-        private static frmTesoreria_OrdenDeMatricula _Instancia;
+        private static frmAcademico_OrdenDeMatricula _Instancia;
 
-        public static frmTesoreria_OrdenDeMatricula GetInstancia()
+        public static frmAcademico_OrdenDeMatricula GetInstancia()
         {
             if (_Instancia == null)
             {
-                _Instancia = new frmTesoreria_OrdenDeMatricula();
+                _Instancia = new frmAcademico_OrdenDeMatricula();
             }
             return _Instancia;
         }
-        public frmTesoreria_OrdenDeMatricula()
+        public frmAcademico_OrdenDeMatricula()
         {
             InitializeComponent();
         }

@@ -48,7 +48,6 @@
     <Compile Include="Conexion_Academico_Familia.cs" />
     <Compile Include="Conexion_Academico_InformacionAcademica.cs" />
     <Compile Include="Conexion_Academico_Madre.cs" />
-    <Compile Include="Conexion_Academico_Otros.cs" />
     <Compile Include="Conexion_Academico_Padre.cs" />
     <Compile Include="Conexion_Academico_Salud.cs" />
     <Compile Include="Conexion_Biblioteca_DetalleDePrestamos.cs" />

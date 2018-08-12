@@ -24,10 +24,13 @@ namespace CapaDatos
         private string _Jornada_Academico;
         private string _Periodo_Academico;
         private string _Estado_Academico;
-        private DateTime _FechaDeIngreso_Academico;
         private DateTime _FechaDeRegistro_Academico;
+
+        private string _UltimoCurso;
+        private string _UltimaJornada;
+        private string _Instituto;
+
         private byte[] _Foto;
-        private string _Observacion;
 
         public int Idinformacionacademica
         {
@@ -39,6 +42,19 @@ namespace CapaDatos
             set
             {
                 _Idinformacionacademica = value;
+            }
+        }
+
+        public int CodigoID
+        {
+            get
+            {
+                return _CodigoID;
+            }
+
+            set
+            {
+                _CodigoID = value;
             }
         }
 
@@ -120,19 +136,6 @@ namespace CapaDatos
             }
         }
 
-        public DateTime FechaDeIngreso_Academico
-        {
-            get
-            {
-                return _FechaDeIngreso_Academico;
-            }
-
-            set
-            {
-                _FechaDeIngreso_Academico = value;
-            }
-        }
-
         public DateTime FechaDeRegistro_Academico
         {
             get
@@ -143,6 +146,45 @@ namespace CapaDatos
             set
             {
                 _FechaDeRegistro_Academico = value;
+            }
+        }
+
+        public string UltimoCurso
+        {
+            get
+            {
+                return _UltimoCurso;
+            }
+
+            set
+            {
+                _UltimoCurso = value;
+            }
+        }
+
+        public string UltimaJornada
+        {
+            get
+            {
+                return _UltimaJornada;
+            }
+
+            set
+            {
+                _UltimaJornada = value;
+            }
+        }
+
+        public string Instituto
+        {
+            get
+            {
+                return _Instituto;
+            }
+
+            set
+            {
+                _Instituto = value;
             }
         }
 
@@ -159,31 +201,7 @@ namespace CapaDatos
             }
         }
 
-        public string Observacion_Academica
-        {
-            get
-            {
-                return _Observacion;
-            }
 
-            set
-            {
-                _Observacion = value;
-            }
-        }
-
-        public int CodigoID
-        {
-            get
-            {
-                return _CodigoID;
-            }
-
-            set
-            {
-                _CodigoID = value;
-            }
-        }
 
         //Constructor Vacio
         public Conexion_Academico_InformacionAcademica()
@@ -194,8 +212,8 @@ namespace CapaDatos
         public Conexion_Academico_InformacionAcademica(
             
             //Informacion Academica
-            int idinformacion, string cursoacademico, string jornadaacademico, string periodoacademico, string Estadoacademico,
-            DateTime fechadeingresoacademico, DateTime fechaderegistroacademico, byte[] Foto, int codigoid,
+            int idinformacion, string cursoacademico, string jornadaacademico, string periodoacademico, string Estadoacademico, string ultimocurso, string ultimajornada,
+            DateTime fechaderegistroacademico, byte[] Foto, int codigoid,
 
             //Filtros de Busquda
             string filtro
@@ -209,8 +227,9 @@ namespace CapaDatos
             this.Jornada_Academico = jornadaacademico;
             this.Periodo_Academico = periodoacademico;
             this.Estado_Academico = Estadoacademico;
-            this.FechaDeIngreso_Academico = fechadeingresoacademico;
             this.FechaDeRegistro_Academico = fechaderegistroacademico;
+            this.UltimoCurso = ultimocurso;
+            this.UltimaJornada = ultimajornada;
             this.Foto = Foto;
 
             //Filtros de Busquda
@@ -281,11 +300,11 @@ namespace CapaDatos
                 ParEstado.Value = Alumno.Estado_Academico;
                 SqlCmd.Parameters.Add(ParEstado);
 
-                SqlParameter ParFechaDeIngreso_Academico = new SqlParameter();
-                ParFechaDeIngreso_Academico.ParameterName = "@Ingreso";
-                ParFechaDeIngreso_Academico.SqlDbType = SqlDbType.Date;
-                ParFechaDeIngreso_Academico.Value = Alumno.FechaDeIngreso_Academico;
-                SqlCmd.Parameters.Add(ParFechaDeIngreso_Academico);
+                //SqlParameter ParFechaDeIngreso_Academico = new SqlParameter();
+                //ParFechaDeIngreso_Academico.ParameterName = "@Ingreso";
+                //ParFechaDeIngreso_Academico.SqlDbType = SqlDbType.Date;
+                //ParFechaDeIngreso_Academico.Value = Alumno.FechaDeIngreso_Academico;
+                //SqlCmd.Parameters.Add(ParFechaDeIngreso_Academico);
 
                 SqlParameter ParFechaDeRegistro_Academico = new SqlParameter();
                 ParFechaDeRegistro_Academico.ParameterName = "@Registro";
@@ -293,12 +312,12 @@ namespace CapaDatos
                 ParFechaDeRegistro_Academico.Value = Alumno.FechaDeRegistro_Academico;
                 SqlCmd.Parameters.Add(ParFechaDeRegistro_Academico);
 
-                SqlParameter ParObservacion = new SqlParameter();
-                ParObservacion.ParameterName = "@Observacion";
-                ParObservacion.SqlDbType = SqlDbType.VarChar;
-                ParObservacion.Size = 200;
-                ParObservacion.Value = Alumno.Observacion_Academica;
-                SqlCmd.Parameters.Add(ParObservacion);
+                //SqlParameter ParObservacion = new SqlParameter();
+                //ParObservacion.ParameterName = "@Observacion";
+                //ParObservacion.SqlDbType = SqlDbType.VarChar;
+                //ParObservacion.Size = 200;
+                //ParObservacion.Value = Alumno.Observacion_Academica;
+                //SqlCmd.Parameters.Add(ParObservacion);
 
                 SqlParameter ParFoto = new SqlParameter();
                 ParFoto.ParameterName = "@Foto";

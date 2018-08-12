@@ -62,10 +62,10 @@ namespace CapaPresentacion
                 this.TBTelefono.BackColor = Color.FromArgb(187, 222, 251);
                 this.TBDireccion.ReadOnly = true;
                 this.TBDireccion.BackColor = Color.FromArgb(187, 222, 251);
-                this.DTFechaDeIngreso.Enabled = false;
-                this.DTFechaDeIngreso.BackColor = Color.FromArgb(187, 222, 251);
-                this.DTFechadesalida.Enabled = false;
-                this.DTFechadesalida.BackColor = Color.FromArgb(187, 222, 251);
+                //this.DTFechaDeIngreso.Enabled = false;
+                //this.DTFechaDeIngreso.BackColor = Color.FromArgb(187, 222, 251);
+                //this.DTFechadesalida.Enabled = false;
+                //this.DTFechadesalida.BackColor = Color.FromArgb(187, 222, 251);
                 
             }
 
@@ -87,10 +87,10 @@ namespace CapaPresentacion
                 this.CBBEstado.BackColor = Color.FromArgb(32, 178, 170);
                 this.TBDireccion.ReadOnly = false;
                 this.TBDireccion.BackColor = Color.FromArgb(32, 178, 170);
-                this.DTFechaDeIngreso.Enabled = true;
-                this.DTFechaDeIngreso.BackColor = Color.FromArgb(32, 178, 170);
-                this.DTFechadesalida.Enabled = true;
-                this.DTFechadesalida.BackColor = Color.FromArgb(32, 178, 170);
+                //this.DTFechaDeIngreso.Enabled = true;
+                //this.DTFechaDeIngreso.BackColor = Color.FromArgb(32, 178, 170);
+                //this.DTFechadesalida.Enabled = true;
+                //this.DTFechadesalida.BackColor = Color.FromArgb(32, 178, 170);
             }
         }
 
@@ -107,8 +107,8 @@ namespace CapaPresentacion
             this.TBTelefono.Text = string.Empty;
             this.CBBEstado.Text = string.Empty;
             this.TBDireccion.Text = string.Empty;
-            this.DTFechaDeIngreso.Text = string.Empty;
-            this.DTFechadesalida.Text = string.Empty;
+            //this.DTFechaDeIngreso.Text = string.Empty;
+            //this.DTFechadesalida.Text = string.Empty;
         }
 
 
@@ -308,9 +308,9 @@ namespace CapaPresentacion
                 {
                     if (this.IsNuevo)
                     {
-                        rptaDatosBasicos = fGestion_Empleados.Guardar_DatosBasicos(Convert.ToInt32(this.CBRol.SelectedValue), this.TBCodigoID.Text, this.CBBEstado.Text, this.TBNombre.Text, this.TBProfesion.Text, this.CBIdentificacion.Text, this.TBIdentificacion.Text, this.TBExpedicion.Text, this.DTFechaExpedicion.Value, this.TBEmail.Text, this.TBTelefono.Text, this.TBDireccion.Text, this.DTFechaDeIngreso.Value, this.DTFechadesalida.Value);
-                        rptaDatosMedicos = fGestion_DatosMedicos.Guardar_DatosBasicos(this.TBCodigoID.Text, this.CBRh.Text, this.CBEps.Text, this.TBAlimentos.Text, this.TBAnimales.Text, this.TBInsectos.Text, this.TBMedicamentos.Text, this.TBPlantas.Text, this.TBIndicaciones.Text);
-                        rptaDatosPersonales = fGestion_DatosPersonales.Guardar_DatosBasicos(this.TBCodigoID.Text, this.TBProfesionprincipal.Text, this.CBPension.Text, this.CBFondo.Text, this.CBContrato.Text, this.TBSueldo.Text, this.CBAdelantos.Text, this.CBHorasExtras.Text, this.CBBanco.Text, this.CBCuenta.Text, TBNumerodecuenta.Text, this.CBPago.Text, this.CBMoneda.Text, this.TBRecomendado.Text, this.DTNacimiento.Value, this.TBHijos.Text, this.TBHijosPlantel.Text, this.CBCivil.Text);
+                        //rptaDatosBasicos = fGestion_Empleados.Guardar_DatosBasicos(Convert.ToInt32(this.CBRol.SelectedValue), this.TBCodigoID.Text, this.CBBEstado.Text, this.TBNombre.Text, this.TBProfesion.Text, this.CBIdentificacion.Text, this.TBIdentificacion.Text, this.TBExpedicion.Text, this.DTFechaExpedicion.Value, this.TBEmail.Text, this.TBTelefono.Text, this.TBDireccion.Text, this.DTFechaDeIngreso.Value, this.DTFechadesalida.Value);
+                        //rptaDatosMedicos = fGestion_DatosMedicos.Guardar_DatosBasicos(this.TBCodigoID.Text, this.CBRh.Text, this.CBEps.Text, this.TBAlimentos.Text, this.TBAnimales.Text, this.TBInsectos.Text, this.TBMedicamentos.Text, this.TBPlantas.Text, this.TBIndicaciones.Text);
+                        //rptaDatosPersonales = fGestion_DatosPersonales.Guardar_DatosBasicos(this.TBCodigoID.Text, this.TBProfesionprincipal.Text, this.CBPension.Text, this.CBFondo.Text, this.CBContrato.Text, this.TBSueldo.Text, this.CBAdelantos.Text, this.CBHorasExtras.Text, this.CBBanco.Text, this.CBCuenta.Text, TBNumerodecuenta.Text, this.CBPago.Text, this.CBMoneda.Text, this.TBRecomendado.Text, this.DTNacimiento.Value, this.TBHijos.Text, this.TBHijosPlantel.Text, this.CBCivil.Text);
                     }
 
                     if (rptaDatosBasicos.Equals("OK") && rptaDatosMedicos.Equals("OK") && rptaDatosPersonales.Equals("OK"))

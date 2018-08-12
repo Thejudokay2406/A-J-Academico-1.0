@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmTesoreria_OrdenDeMatricula
+    partial class frmAcademico_OrdenDeMatricula
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmSistemaAcademico_Cursos
+    partial class frmAcademico_Cursos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBAuto = new System.Windows.Forms.TextBox();
             this.TBDescripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CBEstado = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.TBAuto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,14 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "A&&J Academico - Registro de Cursos de Academicos";
+            // 
+            // TBAuto
+            // 
+            this.TBAuto.Location = new System.Drawing.Point(125, 237);
+            this.TBAuto.Name = "TBAuto";
+            this.TBAuto.Size = new System.Drawing.Size(52, 23);
+            this.TBAuto.TabIndex = 10;
+            this.TBAuto.Text = "0";
             // 
             // TBDescripcion
             // 
@@ -176,9 +184,9 @@
             this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(240, 237);
+            this.btnGuardar.Location = new System.Drawing.Point(265, 237);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(100, 32);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 25);
             this.btnGuardar.TabIndex = 1;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -201,7 +209,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Location = new System.Drawing.Point(10, 237);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(100, 32);
+            this.btnNuevo.Size = new System.Drawing.Size(75, 25);
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -209,15 +217,7 @@
             this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevo_MouseLeave);
             this.btnNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnNuevo_MouseMove);
             // 
-            // TBAuto
-            // 
-            this.TBAuto.Location = new System.Drawing.Point(116, 243);
-            this.TBAuto.Name = "TBAuto";
-            this.TBAuto.Size = new System.Drawing.Size(52, 23);
-            this.TBAuto.TabIndex = 10;
-            this.TBAuto.Text = "0";
-            // 
-            // frmSistemaAcademico_Cursos
+            // frmAcademico_Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,7 +227,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmSistemaAcademico_Cursos";
+            this.Name = "frmAcademico_Cursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Academico - Cursos";
             this.Load += new System.EventHandler(this.frmSistemaAcademico_Cursos_Load);
